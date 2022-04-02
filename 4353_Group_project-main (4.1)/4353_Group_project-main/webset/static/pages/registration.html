@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ url_for( 'static', filename='cssFiles/registrationCss.css' ) }} ">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <title>Registration</title>
+        <link rel="icon" href="{{ url_for('static', filename='img/temp_logo.png') }}">
+    </head>
+
+    <body>
+        <a class="home" href="/">Home</a>
+
+        {% block content %}
+        <div class="container-msg">
+            {% for message in get_flashed_messages() %}
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+            {% endfor %}
+        
+            {% block page_content %}{% endblock %}
+        </div>
+        {% endblock %}
+
+        <div class="container">
+            <h1> "Create an Account" </h1>
+
+            <form action="/registration" method="POST">
+                <label for="usrname">Username</label>
+                <input type="text" id="usrname" name="usrname" pattern="[A-Za-z0-9-]+" title="Only allow number, uppercase, and lowercase letter" required>
+                <label for="psw">Password</label>
+                <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                <label for="psw">Confirm Password</label>
+                <input type="password" id="psw-con" name="psw-con" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                <input type="submit" value="Register">
+            </form>
+            
+            <div id="message">
+                <h3>Password must contain the following:</h3>
+                <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                <p id="number" class="invalid">A <b>number</b></p>
+                <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                <p id="conf" class="invalid">Must match <b>confirm password</b></p>
+            </div>
+
+        </div>
+
+
+
+        <script>
+        var myInput = document.getElementById("psw");
+        var myInput_con = document.getElementById("psw-con")
+        var letter = document.getElementById("letter");
+        var capital = document.getElementById("capital");
+        var number = document.getElementById("number");
+        var length = document.getElementById("length");
+        var conf = document.getElementById("conf");
+
+        //document.getElementById("message-con").style.display = "block";
+
+        // When the user clicks on the password field, show the message box
+        myInput_con.onfocus = function() {
+            document.getElementById("message").style.display = "block";
+        }
+    
+        // When the user clicks outside of the password field, hide the message box
+        myInput_con.onblur = function() {
+            document.getElementById("message").style.display = "none";
+        }
+
+        // When the user clicks on the password field, show the message box
+        myInput.onfocus = function() {
+        document.getElementById("message").style.display = "block";
+        }
+
+        // When the user clicks outside of the password field, hide the message box
+        myInput.onblur = function() {
+        document.getElementById("message").style.display = "none";
+        }
+
+        // When the user starts to type something inside the password-con field
+        myInput_con.onkeyup = function() {
+            if (myInput_con.value.match(myInput.value)){
+                conf.classList.remove("invalid");
+                conf.classList.add("valid");
+            }
+            else{
+                conf.classList.remove("valid");
+                conf.classList.add("invalid");
+            }
+        }
+
+        // When the user starts to type something inside the password field
+        myInput.onkeyup = function() {
+            // Validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+            if(myInput.value.match(lowerCaseLetters)) {  
+                letter.classList.remove("invalid");
+                letter.classList.add("valid");
+            } else {
+                letter.classList.remove("valid");
+                letter.classList.add("invalid");
+            }
+            
+            // Validate capital letters
+            var upperCaseLetters = /[A-Z]/g;
+            if(myInput.value.match(upperCaseLetters)) {  
+                capital.classList.remove("invalid");
+                capital.classList.add("valid");
+            } else {
+                capital.classList.remove("valid");
+                capital.classList.add("invalid");
+            }
+
+            // Validate numbers
+            var numbers = /[0-9]/g;
+            if(myInput.value.match(numbers)) {  
+                number.classList.remove("invalid");
+                number.classList.add("valid");
+            } else {
+                number.classList.remove("valid");
+                number.classList.add("invalid");
+            }
+            
+            // Validate length
+            if(myInput.value.length >= 8) {
+                length.classList.remove("invalid");
+                length.classList.add("valid");
+            } else {
+                length.classList.remove("valid");
+                length.classList.add("invalid");
+            }
+
+            // Validate password match
+            if (myInput.value.match(myInput_con.value)){
+                conf.classList.remove("invalid");
+                conf.classList.add("valid");
+            }
+            else{
+                conf.classList.remove("valid");
+                conf.classList.add("invalid");
+            }
+        }
+        </script>
+    </body>
+</html>

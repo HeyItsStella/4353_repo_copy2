@@ -1,0 +1,148 @@
+.container {
+  border-top: 5px solid black;
+  border-right: 5px solid black;
+  border-left: 5px solid black;
+  border-bottom: 5px solid black;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 500px;
+  margin-left: 500px;
+}
+
+h1 {
+  text-align: center;
+  border-bottom: 2px dotted gray;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: white;
+  margin: 0;
+}
+
+.line1, .line2, .line3 {
+  text-align: center;
+}
+
+a:visited {
+  color: black;
+}
+
+.button {
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  margin-right: 150px;
+  margin-left: 120px;
+  border-radius: 10px;
+  color: white;
+  background-color: #ad342f;
+  width: 120px;
+}
+
+.container-msg {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 500px;
+  margin-left: 500px;
+  background-color: red;
+}
+
+
+.button1{
+  font-weight:bold;
+  text-align: center;
+  margin-top:10px;
+  margin-right:100px;
+  margin-left:100px;
+  border-radius: 10px;
+  background-color: black;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+}
+
+#message-con {
+  display:none;
+  background: white;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message-con p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}
+
+.container-2{
+  text-align: center;
+}
+
+.container-s {
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+.home{
+  text-align: left;
+  font-size: 30px;
+  color: red;
+  margin-top:20px;
+  margin-right:150px;
+  margin-left:150px;
+  border-radius: 10px;
+  background-color: #eef0f1;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+}

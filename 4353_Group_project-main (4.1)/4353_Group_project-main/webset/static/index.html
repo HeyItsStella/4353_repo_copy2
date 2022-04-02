@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>QuotEZ</title>
+        <link rel="icon" href="{{ url_for('static', filename='img/temp_logo.png') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='cssFiles/style.css') }}">
+        <meta name="viewport" content="width=device-width, intial-scale=1">
+    </head>
+
+    <body>
+        <div class="header-container">
+            <a href="/"><img class="logo" src="{{ url_for('static', filename='img/temp_logo.png') }}" alt="logo"></a>
+            <span class="brand"><a href="/">QuotEZ</a></span>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/signup">Sign up</a></li>
+                </ul>
+            </nav>
+            <a class="log-in" href="/login"><button>Log in</button></a>
+        </div>
+
+        <div class="body-color">
+            <div class="body-container">
+                <div class="box-1">
+                    <h2>About us</h2>
+                    <p>Insert description here blablablabla 啊吧啊吧Insert description here blablablabla Insert description here blablablabla Insert description here blablablabla Insert description here blablablabla Insert description here blablablabla Insert description
+                        here blablablabla Insert description here blablablabla </p>
+                    <p>photos credit to: pixabay.com</p>
+                </div>
+                <div class="box-2">
+                    <button id="button-1"><a href="./quote">Get Your Quote Now</a></button>
+                    <button id="button-2"><a href="./quote_history">Check Past Quotes</a></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="picture">
+            <img class="black_white_pic" src="{{ url_for( 'static', filename='img/cutted_black_white.png' ) }}" alt="petrochemical">
+        </div>
+    </body>
+</html>

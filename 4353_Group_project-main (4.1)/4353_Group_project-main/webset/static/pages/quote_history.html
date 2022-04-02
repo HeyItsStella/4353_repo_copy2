@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Quote History</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/temp_logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cssFiles/style.css') }}">
+    <meta name="viewport" content="width=device-width, intial-scale=1">
+
+</head>
+
+<body>
+    <div class="header-container">
+        <a href="/land"><img class="logo" src="{{ url_for('static', filename='img/temp_logo.png') }}" alt="logo"></a>
+        <span class="brand"><a href="/land"> QuotEZ</a></span>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/profile">Manage profile</a></li>
+
+            </ul>
+            
+        </nav>
+    </div>
+
+    <div class="body-box">
+        <h2>Below is your quote history</h2>
+
+        <div class="table-box">
+
+            <table>
+                <tr>
+                    <th># of Gallons requested</th>
+                    <th>Delivery Address</th>
+                    <th>Delivery Date</th>
+                    <th>Suggested Price/Gallon</th>
+                </tr>
+                {% for record in history %}
+                <tr>
+                    <td>{{record[0]}}</td>
+                    <td>{{record[1]}}</td>
+                    <td>{{record[2]}}</td>
+                    <td>{{record[3]}}</td>
+                    <!--<td></td>-->
+
+                </tr>{% endfor %}
+
+
+            </table>
+        </div>
+
+        <div class="picture">
+            <img class="black_white_pic " src="{{ url_for( 'static', filename='img/cutted_black_white.png' ) }} " alt="petrochemical ">
+        </div>
+</body>
+
+</html>
